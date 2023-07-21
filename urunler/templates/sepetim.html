@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load humanize %}
+
+
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+                    
+            {% for sepet in urunler %}
+
+            <div class="col-12 border position-relative p-3">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="sepetId" value="{{ sepet.id }}">
+                    <input type="submit" value="" name="sil" class="btn-close position-absolute top-0 end-0 mt-3 me-3 bg-danger">
+                </form>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{ sepet.urun.resim.url }}" width="100" alt="">
+                    </div>
+                    <div class="col-8">
+                        <h5>{{ sepet.urun.isim }}</h5>
+                        <p>Fiyat : {{ sepet.urun.fiyat|intcomma }}&#8378;</p>
+                        <p>Adet : {{ sepet.adet }}</p>
+                        <p>Toplam Fiyat : {{ sepet.total|intcomma }}&#8378; </p>
+                        <form method="POST" class="d-flex">
+                            {% csrf_token %}
+                            <input type="hidden" name="sepetId" value="{{ sepet.id }}">
+                            <input type="number" name="adet" value="{{ sepet.adet }}" class="form-control">
+                            <input type="submit" value="Güncelle" name="guncelle" class="btn gncl btn-primary ms-3">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="my-5 text-end ode">Toplam Sepet Fiyatı : {{ toplam|intcomma }}&#8378;</div>
+        <form method="POST" class="text-end">
+            {% csrf_token %}
+            <input type="submit" value="Ödeme Yap" name="odeme" class="btn odeme">
+        </form>
+    </div> 
+
+
+
+{% endblock content %}
+    

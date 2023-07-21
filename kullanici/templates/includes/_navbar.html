@@ -1,0 +1,104 @@
+{% load static %}
+<!-- HEADER Başlangıç-->
+<header class="header">
+    <div class="header-top">
+                <ul class="left">
+                    <li><a href="">Hakkımızda</a></li>
+                    <li><a href="">Yardım</a></li>
+                    <li><a href="">İletişim</a></li>
+                    <li><a href="">+8801234567890</a></li>
+                </ul>
+                <ul class="right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          TL
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item ms-3" href="#" id="tlLink">&#8378; TL</a></li>
+                          <li><a class="dropdown-item ms-3" href="#" id="usdLink">&#36; USD</a></li>
+                          <li><a class="dropdown-item ms-3" href="#" id="eurLink">&#8364; EUR</a></li>
+                        
+                          </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Türkçe
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item ms-3  " href="#">English</a></li>
+                          </ul>
+                    </li>
+                </ul>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar_ayar d-flex justify-content-between">
+        <button class="menu_ac"><i class="fa-solid fa-bars"></i></button>
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'media/png/céce.png' %}" alt="Logo" width="60" style="margin-left: 30px;">
+        </a>
+        <div class="form_ayar d-flex align-items-center">
+          <form class="form-inline d-flex" action="/" method = 'GET' role="search">
+            <input class="form-control mr-sm-2" name = "search" type="search" placeholder="Ara" aria-label="Ara" value="{{ search }}">
+            <button class="btn btn-outline my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+          <ul class="navbar-nav ml-auto d-flex align-items-center">
+            {% if user.is_authenticated %}
+            <li class="nav-item ic">
+              <a class="nav-link" href="{% url 'olustur' %}">Oluştur</a>
+            </li>
+            <li class="nav-item ic dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-user"></i> <span class="spn">Giriş Yap</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item ms-3 text-uppercase" href="">{{ request.user }}</a>
+                <a class="dropdown-item ms-3" href="{% url 'logout' %}">Çıkış Yap</a>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item ic dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-user"></i> <span class="spn">Giriş Yap</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item ms-3" href="{% url 'login' %}">Giriş Yap</a>
+                <a class="dropdown-item ms-3" href="{% url 'register' %}">Kaydol</a>
+              </div>
+            </li>
+            {% endif %}
+            <li class="nav-item ic">
+              <a class="nav-link" href="{% url 'favorilerim' %}">
+                <i class="fa-regular fa-heart"></i>
+                <span class="spn">Favorilerim</span>
+                {% if user.is_authenticated and favori_urunler %}
+                  <span class="badge position-absolute translate-middle p-2 bg-danger border border-light rounded-circle" style="top: 15%;">
+                    {{ favori_urunler|length }}
+                  </span>
+                {% endif %}
+              </a>
+            </li>
+            <li class="nav-item ic">
+              <a class="nav-link" href="{% url 'sepetim' %}">
+                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                <span class="spn">Sepetim</span>
+                {% if user.is_authenticated and urunler %}
+                <span class="badge position-absolute  translate-middle p-2 bg-danger border border-light rounded-circle" style=" top: 15%;">
+                  {{ uruns|length }}
+                </span>
+                {% endif %}
+              </a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+      
+      
+      
+</header>
+
+
+
+
+
+<script src="{% static 'index.js' %}"></script>
+<!-- HEADER Bitiş -->

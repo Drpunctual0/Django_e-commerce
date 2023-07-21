@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load humanize %}
+    
+    {% block content %}
+        
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-4">
+                <div id="carouselExampleIndicators{{ forloop.counter }}" class="carousel slide">
+                    <div class="carousel-indicators">
+                        {% for i in "123" %}
+                            <button type="button" style="background-color: #333;" data-bs-target="#carouselExampleIndicators{{ forloop.parentloop.counter }}" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %}active{% endif %}" aria-current="true" aria-label="Slide {{ forloop.counter }}"></button>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+                        {% for i in "123" %}
+                            <div class="carousel-item{% if forloop.counter0 == 0 %} active{% endif %}">
+                                <a href="{% url 'detay' urun.id %}"><img src="{{ urun.resim.url }}" class="d-block mb-5" style="width: 100%;" height="500" alt="{{ urun.isim }}"></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{ forloop.parentloop.counter }}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{ forloop.parentloop.counter }}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-8 mt-5 pt-5">
+                <h3>{{ urun.isim }}</h3>
+                <p>Fiyat: {{ urun.fiyat|intcomma }}&#8378; </p>
+                <p>{{ urun.aciklama|safe }}</p>
+                <a href="#" style="text-decoration: none; color: #333; font-size: 15px; display: flex;">
+                    <div class="rating " style="margin-top: -15px;">
+                        {% for i in "12345" %}
+                            <i class="fa-solid fa-star{% if i <= urun.degerlendirme_sayisi %} checked{% endif %}" style="color: #ffe02e;"></i>
+                        {% endfor %}
+                        <span class="degerlendirme_sayisi">({{ urun.degerlendirme_sayisi }})</span>
+                    </div>
+                </a>
+                <button class="sepet" type="button"><i class="fa-solid fa-cart-shopping" style="color: #ff9500;"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock content %}

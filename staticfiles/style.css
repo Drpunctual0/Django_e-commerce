@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.popup {
+    position: fixed;
+    top: 90%;
+    right: -4%;
+    transform: translate(-50%, -50%);
+    background-color: #e48c00;
+    color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    display: none;
+}
+
+
+/* HEADER */
+.header{
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.header-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+}
+.header-top ul{
+    list-style-type: none;
+    align-items: center;
+}
+.header-top ul li{
+    list-style: none;
+    display: inline ;
+    margin-right: 10px;
+}
+.header-top ul li a{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: #333;
+    text-decoration: none;
+}
+.left{
+    display: flex;
+}
+.left li{
+    margin-inline: 20px;
+}
+.right{
+    display: flex;
+    position: relative;
+    right: 30px;
+}
+.right li{
+    margin-inline: 20px;
+}
+.header-top ul.right li.dropdown {
+    position: relative;
+}
+
+.header-top ul.right li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Giriş Yap dropdown menü ayarları başı */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 1;
+}
+.dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.nav-link:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    padding-right: 19px;
+}
+.hr{
+    width: 80%;
+    margin-left: 10px;
+}
+ul .giris{
+    border: 1px solid black;
+}
+
+/* Giriş Yap dropdown menü ayarları sonu */
+
+
+/* Navbar genel ayar başı  */
+.navbar_ayar{ 
+    margin-top: -10px;
+}
+.navbar-brand img {
+    height: 50px;
+}
+/* Navbar genel ayar sonu  */
+
+
+
+/* Search input ayarları başı */
+nav .form_ayar form{
+    margin-right: 10vw;
+}
+nav .form_ayar input{
+    width: 50vw;
+}
+/* Search input ayarları sonu */
+
+/* Kategori ayarı başı */
+.kategori-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+}
+.kapsayici{
+    display: flex;
+}
+.kategori-item {
+    position: relative;
+    margin-right: 50px;
+}
+
+.kategori-link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.alt-kategori-menu {
+    display: none;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+    border: 1px solid #ccc;
+    width: 800px;
+    position: absolute;
+    left: -10px;
+    top: 25px;
+}
+
+
+.kategori-item:hover .alt-kategori-menu {
+    display: block;
+}
+
+    
+.kdn_aksesuar{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
+.kdn_icGiyim{
+    position: absolute;
+    top: 190px;
+    left: 250px;
+}
+.kdn_luks{
+    position: absolute;
+    top: 370px;
+    left: 250px;
+}
+.kdn_kozmetik{
+    position: absolute;
+    top: 10px;
+    left: 500px;
+}
+.alt_erkek{
+    border: 1px solid #ccc; 
+    width: 400px;
+    position: absolute;
+    top: 25px;
+    left: -20px;
+    z-index: 1;
+}
+.erkek_aksesuar{
+    position: absolute;
+    top: 10px;
+    left: 200px;
+}
+.alt_anne{
+    border: 1px solid #ccc; 
+    width: 900px;
+    position: absolute;
+    top: 25px;
+    left: -200px;
+    z-index: 1;
+}
+.kiz_cocuk{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
+.erkek_cocuk{
+    position: absolute;
+    top: 10px;
+    left: 500px;
+}
+.oyuncak{
+    position: absolute;
+    top: 10px;
+    left: 700px;
+}
+.tasima{
+    position: absolute;
+    top: 300px;
+    left: 250px;
+}
+.beslenme{
+    position: absolute;
+    top: 300px;
+    left: 500px;
+}
+.alt_ev_mobilya{
+    border: 1px solid #ccc; 
+    width: 750px;
+    position: absolute;
+    top: 25px;
+    left: -100px;
+    z-index: 1;
+}
+.ev_dekorasyon{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
+.mobilya{
+    position: absolute;
+    top: 250px;
+    left: 250px;
+}
+.ev_gerecleri{
+    position: absolute;
+    top: 400px;
+    left: 250px;
+}
+.hobi{
+    position: absolute;
+    top: 10px;
+    left: 500px;
+}
+.spor_outdoor{
+    position: absolute;
+    top: 230px;
+    left: 500px;
+}
+.alt_supermarket{
+    border: 1px solid #ccc; 
+    width: 200px;
+    z-index: 1;
+}
+.alt_elektronik{
+    border: 1px solid #ccc; 
+    width: 700px;
+    position: absolute;
+    top: 25px;
+    left: -190px;
+    z-index: 1;
+}
+.bilgisayar{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
+.kisisel_bakim{
+    position: absolute;
+    top: 340px;
+    left: 250px;
+}
+.beyaz_esya{
+    position: absolute;
+    top: 10px;
+    left: 500px;
+}
+ /* kategori ayarı sonu */
+
+ /* Kategorilerin hover ve li ayarları başı */
+.kategori-link:hover{
+    color: orange;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.kategori-menu .kategori-item .alt-kategori-menu ul li{
+    list-style: none;
+}
+.kategori-menu .kategori-item .alt-kategori-menu ul li a{
+    text-decoration: none;
+    color: #333;
+}
+.kategori-menu .kategori-item .alt-kategori-menu ul li a:hover{
+    color: orange;
+    text-decoration: underline;
+}
+ /* Kategorilerin hover ve li ayarları sonu */
+
+  
+
+@media screen and (max-width:993px) {
+    .spn {
+        display: none;
+      }
+      .navbar-nav.ml-auto {
+        flex-direction: row;
+      }
+      .navbar-nav.ml-auto .nav-link {
+        margin-left: 10px;
+      }
+      
+}
+
+ /* sidebar menü butonu ayar başı */
+#pencere{
+    display: none;
+}
+.menu_ac{
+    border: none;
+    font-size: 25px;
+    background-color: #E3E6F3;
+    display: none;
+}
+ /* sidebar menü butonu ayar sonu */
+
+/* accordion ayar başı */
+.accordion {
+    margin-bottom: 10px;
+  }
+  .accordion .panel-heading {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordion .panel-heading:hover {
+    background-color: #f5f5f5;
+  }
+  .accordion .panel-body {
+    display: none;
+  }
+  .accordion .panel-body.show {
+    display: block;
+  }
+  .accordion .toggle-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .accordion .toggle-button.active {
+    transform: rotate(180deg);
+  }
+  /* accordion ayar sonu */
+
+@media screen and (max-width:733px) {
+    
+    .navbar form{
+        width: 100%;
+        position: relative;
+    }
+    .navbar form input{
+        width: 35vw;
+    }
+    .navbar .navbar-nav{
+        position: relative;
+        right: 20px;
+    }
+    #pencere{
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: 0px;
+        width: 280px;
+        height: 100vh;
+        background-color: #E3E6F3;
+        box-shadow:  40px 0 60px rgba(0,0,0,0.1);
+        z-index: 9999;
+        transition: 0.3s ;
+        padding: 80px 0 0 10px;
+    }
+
+    .panel{
+        width: 35vw;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    .kategori-menu{
+        display: none;
+    }
+    .panel li{
+        list-style: none;
+        margin-bottom: 10px;
+    }
+    .panel li a{
+        text-decoration: none;
+        color: #333;
+    }
+    .panel li a:hover{
+        color: orange;
+        text-decoration: underline;
+    }
+    .panel-heading{
+        padding: 6px;
+    }
+
+    .sidebar_kapat{
+        border: none;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        font-size: 20px;
+        background-color: #E3E6F3;
+    }
+    .menu_ac{
+        display: block;
+        border: none;
+        font-size: 25px;
+        background-color: #f5f5f5;
+    }
+    .panel li a{
+        margin-left: 30px;
+    }
+}
+
+/* ürünler ayar başı */
+.card.product{
+    margin: auto;
+    margin-top: 30px;
+}
+.sepet{
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid white;
+}
+.sepet:hover{
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+.favori{
+    background-color: transparent;
+    border: 1px solid white;
+    font-size: 23px;
+    color: #919193;
+}
+.favori:hover{
+    font-size: 23px;
+    transition: 0.7s;
+}
+.card-body a {
+    text-decoration: none;
+    color: #333;
+}
+.card-body a:hover {
+    text-decoration: underline;
+    color: #6e3e3e;
+}
+.btn.odeme{
+    background-color: orange ; 
+    color: rgb(255, 255, 255);
+    width: 200px;
+    height: 50px;
+    border: 1px solid orange;
+    margin-top: -30px;
+  }
+.btn.odeme:hover{
+    box-shadow: 10px 10px 20px rgb(0, 0, 0);
+    transition: 0.6s;
+    color: black;
+  }
+.btn.gncl{
+    background-color: green;
+    border: 1px solid transparent;
+  }
+.btn.gncl:hover{
+    box-shadow: -5px 5px 10px rgb(0, 0, 0);
+    transition: 0.6s;
+    color: black;
+  }
+
+
+/* ürünler ayar sonu */
+
+/* card responsive ayar başı */
+@media screen and (max-width:992px) {
+    .row .carousel-item img{
+        width: 90%;
+    }
+    .row .product{
+        width: 28vw;
+        height: 95vh;
+        margin-top: 30px;
+    }
+    .container-fluid .row .col-lg-3{
+        padding: 0;
+    }
+}
+/* card responsive ayar sonu */
+

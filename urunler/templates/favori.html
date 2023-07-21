@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+
+<div class="container">
+    <h1 class="mt-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: rgb(61, 3, 86);">Favorilerim</h1>
+    {% if favoriler %}
+    <div class="row">
+        {% for favori in favoriler %}
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{ favori.urun.resim.url }}" alt="{{ favori.urun.isim }}" class="img-fluid mb-3">
+                </div>
+                <div class="col-8 m-auto">
+                    <h5>{{ favori.urun.isim }}</h5>
+                    <p>{{ favori.urun.aciklama|safe }}</p>
+                    <p>Ürün Fiyatı: {{ favori.urun.fiyat|intcomma }}&#8378;</p>
+                    <a href="#" style="text-decoration: none; color: #333; font-size: 15px; display: flex;">
+                    <div class="rating " style="margin-top: -15px;">
+                        {% for i in "12345" %}
+                            <i class="fa-solid fa-star{% if i <= urun.degerlendirme_sayisi %} checked{% endif %}" style="color: #ffe02e;"></i>
+                        {% endfor %}
+                        <span class="degerlendirme_sayisi">({{ urun.degerlendirme_sayisi }})</span>
+                    </div>
+                </a>
+                <form method="POST" style=" display: flex;">
+                    {% csrf_token %}
+                    <input type="hidden" name="urunId" value="{{ urun.id }}">
+                    <button class="sepet ms-3" type="submit"><i class="fa-solid fa-cart-shopping" style="color: #ff9500;"></i></button>
+                </form>
+                <form method="POST" action="{% url 'favori_kaldir' favori.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" name="favori_kaldir" value="{{ favori.id }}">Favoriden Kaldır</button>
+                </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h1 class="text-center" style="font-family: Arial, Helvetica, sans-serif; padding-bottom: 300px ; padding-top: 150px; color: #480404;">Favorilerde hiç ürün yok !</h1>
+    {% endif %}
+</div>
+
+{% endblock content %}
